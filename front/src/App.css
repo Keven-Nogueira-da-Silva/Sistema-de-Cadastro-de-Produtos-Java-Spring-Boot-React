@@ -1,0 +1,179 @@
+/* ===== VARIÁVEIS GLOBAIS ===== */
+:root {
+  --primary-color: #4f46e5;
+  --primary-hover: #4338ca;
+  --background-light: #f4f6f9;
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+  --text-color: #1e293b;
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* ===== RESET MODERNO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-light);
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== FORMULÁRIO ===== */
+form {
+  width: min(400px, 90%);
+  margin: 20px auto;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== INPUTS ===== */
+form input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid var(--border-color);
+  border-radius: calc(var(--border-radius) - 4px);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--white);
+}
+
+/* Placeholder styling */
+form input::placeholder {
+  color: #94a3b8;
+  opacity: 0.8;
+}
+
+form input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* Input com erro (para validação) */
+form input.error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+form input.error:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+/* ===== GRUPO DE BOTÕES ===== */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ===== BOTÕES ===== */
+form button,
+form input[type='button'],
+form input[type='submit'] {
+  padding: 0.875rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: calc(var(--border-radius) - 4px);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease;
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+/* Botão secundário */
+form input[type='button'] {
+  background-color: #64748b;
+}
+
+form input[type='button']:hover {
+  background-color: #475569;
+}
+
+/* Hover do botão primário */
+form input[type='submit']:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Estado ativo (clique) */
+form button:active,
+form input[type='button']:active,
+form input[type='submit']:active {
+  transform: scale(0.98);
+}
+
+/* Botão desabilitado */
+form button:disabled,
+form input[type='button']:disabled,
+form input[type='submit']:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== TÍTULOS ===== */
+h1, h2, h3 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 480px) {
+  form {
+    padding: 1.5rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+  
+  form input[type='button'],
+  form input[type='submit'] {
+    width: 100%;
+  }
+}
